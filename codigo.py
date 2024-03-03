@@ -20,10 +20,10 @@ def factorial(n):
     resultado = 1
     
     if numero <= 0:
-        print('No se puede sacar la factorial de número menores o igual a cero')
-        
+        print('No se puede sacar la factorial de cero o número menor a este, por ende se retornará 1')
+        return 1
+    
     else:
-        
         while numero > 0:
             if numero not in lista or numero == 1:
                 lista.append(numero)
@@ -37,7 +37,7 @@ def factorial(n):
             resultado *= num
         
         print(f'El resultado de la factorial de {n} es: {resultado}')
-                
+        return resultado
                 
             
 """
@@ -68,8 +68,10 @@ def es_palindromo(cadena):
       
     if cadena_formateada == cadena_formateada_reversa:
         print('Si es palíndroma')
+        return True
     else:
         print('No es palíndroma')
+        return False
 
 """
 Ejercicio 5: Suma de Elementos de una Lista
@@ -82,3 +84,4 @@ def suma_lista(lista):
     for elemento in lista:
         suma += elemento
     return suma
+
