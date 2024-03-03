@@ -4,7 +4,10 @@ Descripción: Este ejercicio consiste en crear una función que reciba dos núme
 """
 
 def sumar(a, b):
-    # Escribe aqui el return de la suma de 2 numeros
+    try:
+        return a + b
+    except ValueError:
+        print('Error: No se ha ingresado números')
 
 """
 Ejercicio 2: Factorial de un Número
@@ -12,23 +15,42 @@ Descripción: En este ejercicio se requiere crear una función que calcule el fa
 """
     
 def factorial(n):
-    if n == 0:
-        # Escribe aqui el return de la operacion anterior
+    numero = n
+    lista = []
+    resultado = 1
+    
+    if numero <= 0:
+        print('No se puede sacar la factorial de número menores o igual a cero')
+        
     else:
-        # Escribe aqui el return de la operacion contraria a la operacion anterior
-
+        
+        while numero > 0:
+            if numero not in lista or numero == 1:
+                lista.append(numero)
+            else:
+                lista.append(numero - 1)
+            numero -= 1
+  
+        lista.sort()
+        
+        for num in lista:
+            resultado *= num
+        
+        print(f'El resultado de la factorial de {n} es: {resultado}')
+                
+                
+            
 """
 Ejercicio 3: Contar Vocales en una Cadena
 Descripción: En este ejercicio se debe implementar una función que cuente el número de vocales (mayúsculas y minúsculas) en una cadena de texto dada.
 """
     
 def contar_vocales(cadena):
-    vocales = 'aeiouAEIOU'
-    contador = 0
+    contador_vocales = 0
     for letra in cadena:
-        if letra in vocales:
-            # Escribe aqui el contador de vocales
-    return contador
+        if letra.lower() in ['a', 'e', 'i',' o', 'u']:
+            contador_vocales += 1
+    return contar_vocales()
 
 """
 Ejercicio 4: Verificar Palíndromo
@@ -37,7 +59,17 @@ Descripción: En este ejercicio se debe implementar una función que verifique s
 
 def es_palindromo(cadena):
     # Escribe aqui el return de la cadena al reves con una funcion de python
-    return cadena == cadena[::-1]
+    caracteres_no_validos = ['.', ',', "'", ':', ';', '¨', '"', ' ']
+    cadena_formateada = cadena.lower()
+    for caracter in caracteres_no_validos:
+        cadena_formateada = cadena_formateada.replace(caracter, '')
+    cadena_formateada_reversa = cadena_formateada[::-1]
+    
+      
+    if cadena_formateada == cadena_formateada_reversa:
+        print('Si es palíndroma')
+    else:
+        print('No es palíndroma')
 
 """
 Ejercicio 5: Suma de Elementos de una Lista
@@ -46,6 +78,7 @@ Descripción: En este ejercicio se debe crear una función que calcule la suma d
 
 def suma_lista(lista):
     # Escribe aqui el return de la suma de todos los elementos de la lista
+    suma = 0
     for elemento in lista:
         suma += elemento
     return suma
